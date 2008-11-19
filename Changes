@@ -1,5 +1,8 @@
 Revision history for IO-Stream-Proxy-HTTPS
 
-1.0.0  Sun Nov 16 02:59:21 2008
-       Initial release.
+1.0.1	Wed Nov 19 05:12:24 EET 2008
+	Added compatibility with Win32.
+
+1.0.0	Sun Nov 16 02:59:21 2008
+	Initial release.
 

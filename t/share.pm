@@ -18,6 +18,7 @@ use Carp::Heavy;
 $SIG{PIPE}  = 'IGNORE';
 $EV::DIED   = sub { diag $@; EV::unloop };
 
+use constant WIN32   => IO::Stream::WIN32;
 use constant BUFSIZE => IO::Stream::BUFSIZE;
 
 use t::config;
@@ -61,20 +62,30 @@ sub events2str {
     return $err ? "$s err=$err" : $s;
 }
 
+sub nonblocking {
+    my ($fh) = @_;
+    if (WIN32) {
+        my $nb=1; ioctl $fh, 0x8004667e, \$nb; # FIONBIO
+    } else {
+        fcntl $fh, F_SETFL, O_NONBLOCK                or croak qq{fcntl: $!};
+    }
+    return;
+}
+
 sub tcp_server {
     my ($host, $port) = @_;
     socket my $sock, AF_INET, SOCK_STREAM, 0        or croak qq{socket: $!};
     setsockopt $sock, SOL_SOCKET, SO_REUSEADDR, 1   or croak qq{setsockopt: $!};
     bind $sock, sockaddr_in($port, inet_aton($host))or croak qq{bind: $!};
     listen $sock, SOMAXCONN                         or croak qq{listen: $!};
-    fcntl $sock, F_SETFL, O_NONBLOCK                or croak qq{fcntl: $!};
+    nonblocking($sock);
     return $sock;
 }
 
 sub tcp_client {
     my ($host, $port) = @_;
     socket my $sock, AF_INET, SOCK_STREAM, 0        or croak qq{socket: $!};
-    fcntl $sock, F_SETFL, O_NONBLOCK                or croak qq{fcntl: $!};
+    nonblocking($sock);
     connect $sock, sockaddr_in($port, inet_aton($host));
     return $sock;
 }
@@ -85,14 +96,14 @@ sub unix_server {
     unlink $path;
     bind $sock, sockaddr_un($path)                  or croak qq{bind: $!};
     listen $sock, SOMAXCONN                         or croak qq{listen: $!};
-    fcntl $sock, F_SETFL, O_NONBLOCK                or croak qq{fcntl: $!};
+    nonblocking($sock);
     return $sock;
 }
 
 sub unix_client {
     my ($path) = @_;
     socket my $sock, AF_UNIX, SOCK_STREAM, 0        or croak qq{socket: $!};
-    fcntl $sock, F_SETFL, O_NONBLOCK                or croak qq{fcntl: $!};
+    nonblocking($sock);
     connect $sock, sockaddr_un($path);
     return $sock;
 }
