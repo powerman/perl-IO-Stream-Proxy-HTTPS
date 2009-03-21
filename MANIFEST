@@ -15,6 +15,7 @@ README
 t/.perlcriticrc
 t/00.load.t
 t/01.export.t
+t/bug-weaken.t
 t/config.pm
 t/perlcritic.t
 t/pod-coverage.t

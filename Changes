@@ -1,5 +1,8 @@
 Revision history for IO-Stream-Proxy-HTTPS
 
+1.0.2	Sat Mar 21 15:28:16 EET 2009
+	Fixed bug: I/O object wasn't destroyed on close()
+
 1.0.1	Wed Nov 19 05:12:24 EET 2008
 	Added compatibility with Win32.
 
