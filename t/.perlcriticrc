@@ -223,6 +223,8 @@ severity                           = 4
 severity                           = 3
 # maximum_violations_per_document    = no_limit
 
+[-CodeLayout::RequireTidyCode]
+
 
 # Write `for(0..20)' instead of `for($i=0; $i<=20; $i++)'.
 [ControlStructures::ProhibitCStyleForLoops]

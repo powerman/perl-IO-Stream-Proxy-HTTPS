@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('1.0.2');    # update POD & Changes & README
+use version; our $VERSION = qv('1.0.3');    # update POD & Changes & README
 
 # update DEPENDENCIES in POD & Makefile.PL & README
 use IO::Stream::const;
@@ -91,6 +91,10 @@ sub EVENT {
             }
         }
     }
+    if ($e & EOF) {
+        $m->{is_eof} = $self->{is_eof};
+        $m->EVENT(0, 'https proxy: unexpected EOF');
+    }
     return;
 }
 
@@ -105,7 +109,7 @@ IO::Stream::Proxy::HTTPS - HTTPS proxy plugin for IO::Stream
 
 =head1 VERSION
 
-This document describes IO::Stream::Proxy::HTTPS version 1.0.2
+This document describes IO::Stream::Proxy::HTTPS version 1.0.3
 
 
 =head1 SYNOPSIS
