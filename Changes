@@ -1,5 +1,8 @@
 Revision history for IO-Stream-Proxy-HTTPS
 
+1.0.4	Sun May 13 06:01:33 EEST 2012
+	Fix requirements.
+
 1.0.3	Sat Apr 04 05:54:44 EEST 2009
 	Fixed bug: 100% CPU usage on unexpected EOF
 

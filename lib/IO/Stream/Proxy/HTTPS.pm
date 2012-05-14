@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('1.0.3');    # update POD & Changes & README
+use version; our $VERSION = qv('1.0.4');    # update POD & Changes & README
 
 # update DEPENDENCIES in POD & Makefile.PL & README
 use IO::Stream::const;
@@ -69,7 +69,7 @@ sub EVENT {
         $m->EVENT(0, $err);
     }
     if ($e & IN) {
-        if ($self->{in_buf} =~ s{\A(HTTP/\d\.\d\s(\d+)\s.*?)\r?\n\r?\n}{}xms) {
+        if ($self->{in_buf} =~ s{\A(HTTP/\d[.]\d\s(\d+)\s.*?)\r?\n\r?\n}{}xms) {
             my ($reply, $status) = ($1, $2);
             if ($status == HTTP_OK) {
                 $e = CONNECTED;
@@ -109,7 +109,7 @@ IO::Stream::Proxy::HTTPS - HTTPS proxy plugin for IO::Stream
 
 =head1 VERSION
 
-This document describes IO::Stream::Proxy::HTTPS version 1.0.3
+This document describes IO::Stream::Proxy::HTTPS version 1.0.4
 
 
 =head1 SYNOPSIS
