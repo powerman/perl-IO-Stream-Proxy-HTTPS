@@ -1,4 +1,4 @@
-IO-Stream-Proxy-HTTPS version 1.0.4
+IO-Stream-Proxy-HTTPS version 1.0.5
 
 This module is plugin for IO::Stream which allow you to route stream
 through HTTPS (also called CONNECT) proxy.

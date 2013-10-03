@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('1.0.4');    # update POD & Changes & README
+use version; our $VERSION = qv('1.0.5');    # update POD & Changes & README
 
 # update DEPENDENCIES in POD & Makefile.PL & README
 use IO::Stream::const;
@@ -109,7 +109,7 @@ IO::Stream::Proxy::HTTPS - HTTPS proxy plugin for IO::Stream
 
 =head1 VERSION
 
-This document describes IO::Stream::Proxy::HTTPS version 1.0.4
+This document describes IO::Stream::Proxy::HTTPS version 1.0.5
 
 
 =head1 SYNOPSIS
@@ -205,7 +205,7 @@ None reported.
 No bugs have been reported.
 
 Please report any bugs or feature requests to author, or
-C<bug-ev-stream-proxy-https@rt.cpan.org>, or through the web interface at
+C<bug-io-stream-proxy-https@rt.cpan.org>, or through the web interface at
 L<http://rt.cpan.org>.
 
 
