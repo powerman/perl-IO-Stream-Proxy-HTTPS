@@ -3,9 +3,8 @@ use warnings;
 use strict;
 use t::share;
 
-if (CFG_ONLINE ne 'y') {
-    plan skip_all => 'online tests disabled';
-}
+plan skip_all => '$TEST_HTTPS_PROXY_{HOST,PORT,USER,PASS} are not configured'
+    if !$ENV{TEST_HTTPS_PROXY_HOST};
 
 IO::Stream->new({
     host        => 'www.google.com',
@@ -16,11 +15,11 @@ IO::Stream->new({
     in_buf_limit=> 102400,
     plugin      => [
         proxy       => IO::Stream::Proxy::HTTPS->new({
-            host        => CFG_HOST,
-            port        => CFG_PORT,
-          ( CFG_USER ne q{} ? (
-            user        => CFG_USER,
-            pass        => CFG_PASS,
+            host        => $ENV{TEST_HTTPS_PROXY_HOST},
+            port        => $ENV{TEST_HTTPS_PROXY_PORT},
+          ( $ENV{TEST_HTTPS_PROXY_USER} ? (
+            user        => $ENV{TEST_HTTPS_PROXY_USER},
+            pass        => $ENV{TEST_HTTPS_PROXY_PASS},
           ) : () ),
         }),
     ],
