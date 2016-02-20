@@ -1,6 +1,8 @@
 Revision history for IO-Stream-Proxy-HTTPS
 
 {{$NEXT}}
+
+v2.0.0  2016-02-20 14:53:06 EET
 	- Switch to Dist::Milla.
 
 1.0.5   2013-10-03 16:58:07 EEST

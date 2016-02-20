@@ -59,7 +59,7 @@
    "provides" : {
       "IO::Stream::Proxy::HTTPS" : {
          "file" : "lib/IO/Stream/Proxy/HTTPS.pm",
-         "version" : "v1.0.5"
+         "version" : "v2.0.0"
       }
    },
    "release_status" : "stable",
@@ -74,6 +74,6 @@
          "web" : "https://github.com/powerman/perl-IO-Stream-Proxy-HTTPS"
       }
    },
-   "version" : "v1.0.5"
+   "version" : "v2.0.0"
 }
 

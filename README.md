@@ -7,7 +7,7 @@ IO::Stream::Proxy::HTTPS - HTTPS proxy plugin for IO::Stream
 
 # VERSION
 
-This document describes IO::Stream::Proxy::HTTPS version v1.0.5
+This document describes IO::Stream::Proxy::HTTPS version v2.0.0
 
 # SYNOPSIS
 

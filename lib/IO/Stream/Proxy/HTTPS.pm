@@ -5,7 +5,7 @@ use strict;
 use utf8;
 use Carp;
 
-our $VERSION = 'v1.0.5';
+our $VERSION = 'v2.0.0';
 
 use IO::Stream::const;
 use MIME::Base64;
@@ -109,7 +109,7 @@ IO::Stream::Proxy::HTTPS - HTTPS proxy plugin for IO::Stream
 
 =head1 VERSION
 
-This document describes IO::Stream::Proxy::HTTPS version v1.0.5
+This document describes IO::Stream::Proxy::HTTPS version v2.0.0
 
 
 =head1 SYNOPSIS
