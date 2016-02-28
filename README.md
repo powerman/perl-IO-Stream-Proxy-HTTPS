@@ -48,10 +48,20 @@ target {host} (and not when socket will connect to HTTPS proxy itself).
 
 # INTERFACE 
 
-- new({ host=>$host, port=>$port })
-- new({ host=>$host, port=>$port, user=>$user, pass=>$pass })
+## new
 
-    Connect to proxy $host:$port, optionally using basic authorization.
+    $plugin = IO::Stream::Proxy::HTTPS->new({
+        host=>$host,
+        port=>$port,
+    });
+    $plugin = IO::Stream::Proxy::HTTPS->new({
+        host=>$host,
+        port=>$port,
+        user=>$user,
+        pass=>$pass,
+    });
+
+Connect to proxy $host:$port, optionally using basic authorization.
 
 # DIAGNOSTICS
 
@@ -116,7 +126,7 @@ Alex Efros &lt;powerman@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2008 by Alex Efros &lt;powerman@cpan.org>.
+This software is Copyright (c) 2008- by Alex Efros &lt;powerman@cpan.org>.
 
 This is free software, licensed under:
 
